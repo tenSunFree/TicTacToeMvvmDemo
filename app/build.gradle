@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.home.tictactoemvvmdemo"
+        minSdkVersion 26
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+dependencies {
+    implementation supportDependencies.appCompat
+    implementation supportDependencies.design
+    implementation supportDependencies.gridLayout
+    implementation supportDependencies.annotations
+    implementation architectureComponentDependencies.viewModelAndLiveData
+    testImplementation testingDependencies.junit
+    testImplementation testingDependencies.liveDataTestHelper
+    androidTestImplementation(testingDependencies.barista) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+}
