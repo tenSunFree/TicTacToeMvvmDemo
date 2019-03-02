@@ -1,6 +1,3 @@
-# 
-
-
 # TicTacToeMvvmDemo
 
 簡介
